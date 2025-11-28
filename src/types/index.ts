@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // ========================
 // PROJECT TYPES
 // ========================
@@ -32,10 +33,21 @@ export interface Project {
   subtitle?: string;
   
 
+=======
+export interface Project {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  link: string;
+  description?: string;
+  subtitle?: string;
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
   client?: string;
   services?: string;
   duration?: string;
   year?: string;
+<<<<<<< HEAD
 
   tabs?: ProjectTab[];
 }
@@ -45,6 +57,22 @@ export interface Project {
 // OTHER ENTITIES
 // ========================
 
+=======
+  tabs?: {
+    label: string;
+    heading?: string;
+    description?: string;
+    images?: {
+      src: string;
+      title?: string;
+      desc?: string;
+      download?: string;
+    }[];
+  }[];
+}
+
+
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 export interface Skill {
   name: string;
   icon: string;
@@ -77,5 +105,10 @@ export interface LogoVariation {
   description: string;
   image: string;
   gradient: string;
+<<<<<<< HEAD
   size: "small" | "medium" | "large";
 }
+=======
+  size: 'small' | 'medium' | 'large';
+}
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6

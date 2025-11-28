@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+<<<<<<< HEAD
 
 import { worksProjects } from "../data/projects";
 
@@ -10,6 +11,15 @@ import BackToTop from "../components/BackToTop";
 import Grid from "../components/Grid";
 
 // Icons
+=======
+import { worksProjects } from "../data/projects";
+
+import Footer from "../components/Footer";
+import BackToTop from "../components/BackToTop";
+import PortfolioGrid from "../components/PortfolioGrid";
+
+// === Icons ===
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 import AllIcon from "../icons/svg/all.svg";
 import DigitalArtIcon from "../icons/svg/art.svg";
 import BrandingIcon from "../icons/svg/brand.svg";
@@ -117,7 +127,11 @@ const Works: React.FC = () => {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Grid */}
+=======
+          {/* Projects Grid (Animated Filter Transition) */}
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
           <motion.div
             key={activeFilter}
             initial={{ opacity: 0, y: 20 }}
@@ -125,12 +139,29 @@ const Works: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: EASE_SMOOTH }}
           >
+<<<<<<< HEAD
             <Grid
               type="works"
               accent="#22d3ee"
               limit={9}
               projects={filteredProjects}
             />
+=======
+            {filteredProjects.length === 0 ? (
+              <div className="py-20 flex flex-col items-center text-center">
+                <p className="text-text-muted text-sm sm:text-base">
+                  No works found.
+                </p>
+              </div>
+            ) : (
+              <PortfolioGrid
+                type="works"
+                accent="#22d3ee"
+                limit={9}
+                projects={filteredProjects} // ✅ pass filtered projects
+              />
+            )}
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
           </motion.div>
         </div>
       </main>

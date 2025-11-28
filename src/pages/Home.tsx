@@ -9,7 +9,11 @@ import SplashCursor from "../components/SplashCursor";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 import SpotlightCard from "../components/SpotlightCard";
+<<<<<<< HEAD
 import Grid from "../components/Grid"; // 🔥 Replaced PortfolioGrid with the new shared Grid
+=======
+import ProjectGrid from "../components/PortfolioGrid";
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 
 // Icons & Images
 import profileImg from "../images/profile.svg";
@@ -65,15 +69,30 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 640px)");
+<<<<<<< HEAD
     setIsMobile(mql.matches);
 
     const handler = (event: MediaQueryListEvent) => setIsMobile(event.matches);
 
+=======
+
+    // Set initial state
+    setIsMobile(mql.matches);
+
+    // Define a handler
+    const handler = (event: MediaQueryListEvent) => setIsMobile(event.matches);
+
+    // Modern browsers
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
     if (mql.addEventListener) {
       mql.addEventListener("change", handler);
       return () => mql.removeEventListener("change", handler);
     }
 
+<<<<<<< HEAD
+=======
+    // Legacy browsers
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
     if (mql.addListener) {
       mql.addListener(handler);
       return () => mql.removeListener(handler);
@@ -146,11 +165,29 @@ const Home: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 className="flex flex-wrap justify-center items-center gap-5 mb-5 text-sm text-text-secondary max-sm:flex-col max-sm:gap-2"
               >
+<<<<<<< HEAD
                 <motion.div variants={fadeUp} className="flex items-center gap-2">
                   <img src={graduateIcon} alt="CG Artist Icon" className="w-4 h-4" />
                   <span>Visual CG Artist</span>
                 </motion.div>
                 <motion.div variants={fadeUp} className="flex items-center gap-2">
+=======
+                <motion.div
+                  variants={fadeUp}
+                  className="flex items-center gap-2"
+                >
+                  <img
+                    src={graduateIcon}
+                    alt="CG Artist Icon"
+                    className="w-4 h-4"
+                  />
+                  <span>Visual CG Artist</span>
+                </motion.div>
+                <motion.div
+                  variants={fadeUp}
+                  className="flex items-center gap-2"
+                >
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                   <img src={mapIcon} alt="Location" className="w-4 h-4" />
                   <span>Remote</span>
                 </motion.div>
@@ -210,7 +247,15 @@ const Home: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-center gap-3 mb-5">
+<<<<<<< HEAD
                   <img src={skillsIcon} alt="Tools & Skills" className="w-6 h-6" />
+=======
+                  <img
+                    src={skillsIcon}
+                    alt="Tools & Skills"
+                    className="w-6 h-6"
+                  />
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                   <h3 className="text-xl font-mono font-semibold max-sm:text-lg">
                     Tools & Skills
                   </h3>
@@ -244,7 +289,11 @@ const Home: React.FC = () => {
                           transition={{ duration: 0.6 }}
                         />
                         <motion.span
+<<<<<<< HEAD
                           className="transition-colors"
+=======
+                          className="label transition-colors"
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                           variants={{
                             rest: { color: "#9ca3af" },
                             hover: { color: "#ffffff" },
@@ -286,8 +335,12 @@ const Home: React.FC = () => {
               className="px-0"
             >
               <div className="transition-transform">
+<<<<<<< HEAD
                 {/* 🔥 Replaced old PortfolioGrid with the new shared Grid */}
                 <Grid type="pastworks" limit={9} accent="#22d3ee" />
+=======
+                <ProjectGrid limit={9} accent="#22d3ee" />
+>>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
               </div>
             </motion.div>
           </div>
