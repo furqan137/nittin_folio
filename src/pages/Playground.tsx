@@ -4,12 +4,9 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
-<<<<<<< HEAD
 import Grid from "../components/Grid";
-=======
-import PortfolioGrid from "../components/PortfolioGrid";
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 import EmptyState from "../components/EmptyState";
+
 import { playgroundProjects } from "../data/projects";
 
 // === Icons ===
@@ -62,34 +59,19 @@ const Playground = (): JSX.Element => {
     { id: "chaos", label: "Abstract Chaos", icon: ChaosIcon },
   ];
 
-  // === FIXED FILTER FUNCTION ===
-<<<<<<< HEAD
-// === FIXED FILTER FUNCTION ===
-const filteredProjects = useMemo(() => {
-  return playgroundProjects.filter((p) => {
-    const matchCategory = !activeCategory || p.category === activeCategory;
-    const matchFilter = activeFilter === "all" || p.filter === activeFilter;
-    return matchCategory && matchFilter;
-  });
-}, [activeCategory, activeFilter]);
-
-
-  // === Toggle filter ===
-  const handleFilterChange = (id: string) => {
-    setActiveFilter((prev) => (prev === id ? "all" : id));
-=======
+  // ============================================
+  // ✅ FIXED FILTER FUNCTION
+  // ============================================
   const filteredProjects = useMemo(() => {
     return playgroundProjects.filter((p) => {
       const matchCategory = !activeCategory || p.category === activeCategory;
-      const matchFilter = activeFilter === "all" || p.tags?.includes(activeFilter);
+      const matchFilter = activeFilter === "all" || p.filter === activeFilter;
       return matchCategory && matchFilter;
     });
   }, [activeCategory, activeFilter]);
 
-  // === Handle Filter Changes Safely ===
-  const handleFilterChange = (filterId: string) => {
-    setActiveFilter((prev) => (prev === filterId ? "all" : filterId));
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+  const handleFilterChange = (id: string) => {
+    setActiveFilter((prev) => (prev === id ? "all" : id));
   };
 
   return (
@@ -102,18 +84,12 @@ const filteredProjects = useMemo(() => {
     >
       <Helmet>
         <title>NITTIN | Playground</title>
-        <meta
-          name="description"
-          content="Art. Logic. Identity. — Visual systems and motion design by NITTIN."
-        />
+        <meta name="description" content="Art. Logic. Identity. — Visual systems and motion design by NITTIN." />
       </Helmet>
 
       <main className="flex-1 pt-36 sm:pt-48 md:pt-56 pb-10 sm:pb-12">
         <div className="max-w-6xl mx-auto px-7 sm:px-7 md:px-8">
-<<<<<<< HEAD
 
-=======
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
           {/* === HEADER === */}
           <motion.div
             initial="hidden"
@@ -138,12 +114,7 @@ const filteredProjects = useMemo(() => {
                 className="text-text-secondary text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-9"
               >
                 This is where I let my creativity run wild. Experimental, weird concepts,{" "}
-<<<<<<< HEAD
                 <span className="font-mono text-accent-green">digital chaos</span>.
-=======
-                <span className="font-mono text-accent-green">digital chaos</span>, and everything that doesn't fit in a
-                neat category.
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
               </motion.p>
             </motion.div>
           </motion.div>
@@ -160,7 +131,6 @@ const filteredProjects = useMemo(() => {
               return (
                 <motion.button
                   key={cat.id}
-<<<<<<< HEAD
                   onClick={() => setActiveCategory((prev) => (prev === cat.id ? "" : cat.id))}
                   className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] sm:text-xs md:text-sm transition-all ${
                     active
@@ -169,27 +139,11 @@ const filteredProjects = useMemo(() => {
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-=======
-                  onClick={() =>
-                    setActiveCategory((prev) => (prev === cat.id ? "" : cat.id))
-                  }
-                  className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] sm:text-xs md:text-sm transition-all ${
-                    active
-                      ? `${cat.color} border-accent text-white shadow-md`
-                      : "border-gray-600 text-text-secondary hover:border-blue-400 hover:text-blue-400"
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.22, ease: EASE_SMOOTH }}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                 >
                   <img
                     src={cat.icon}
                     alt={cat.label}
-<<<<<<< HEAD
-=======
-                    loading="lazy"
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                     className={`w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 ${
                       active ? "brightness-0 invert-[.93]" : "brightness-100"
                     }`}
@@ -215,33 +169,18 @@ const filteredProjects = useMemo(() => {
                   onClick={() => handleFilterChange(f.id)}
                   className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] sm:text-xs md:text-sm transition-all ${
                     active
-<<<<<<< HEAD
-                      ? "bg-accent border-accent text-white shadow-md"
-=======
                       ? "bg-accent border-accent text-white shadow-md shadow-accent/40"
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                       : "border-gray-600 text-text-secondary hover:border-blue-400"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-<<<<<<< HEAD
-=======
                   transition={{ duration: 0.22, ease: EASE_SMOOTH }}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                 >
                   <img
                     src={f.icon}
                     alt={f.label}
-<<<<<<< HEAD
-                    className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                      active ? "brightness-0 invert" : "brightness-100"
-=======
-                    loading="lazy"
                     className={`w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 ${
-                      active
-                        ? "brightness-0 invert-[.93]"
-                        : "brightness-100 group-hover:invert-[65%] group-hover:sepia-[59%] group-hover:saturate-[604%] group-hover:hue-rotate-[182deg] group-hover:brightness-[96%] group-hover:contrast-[90%]"
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+                      active ? "brightness-0 invert-[.93]" : "brightness-100"
                     }`}
                   />
                   {f.label}
@@ -250,11 +189,7 @@ const filteredProjects = useMemo(() => {
             })}
           </motion.div>
 
-<<<<<<< HEAD
-          {/* === GRID WITH ANIMATED REFRESH === */}
-=======
-          {/* === FIXED GRID (AnimatePresence ensures refresh works properly) === */}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+          {/* === GRID === */}
           <AnimatePresence mode="wait">
             {filteredProjects.length > 0 ? (
               <motion.div
@@ -264,11 +199,7 @@ const filteredProjects = useMemo(() => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: EASE_SMOOTH }}
               >
-<<<<<<< HEAD
                 <Grid
-=======
-                <PortfolioGrid
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                   type="playground"
                   projects={filteredProjects}
                   limit={filteredProjects.length}
@@ -281,20 +212,13 @@ const filteredProjects = useMemo(() => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-<<<<<<< HEAD
-=======
-                transition={{ duration: 0.3 }}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                 className="flex justify-center py-20 sm:py-28"
               >
                 <EmptyState reason="No projects match your selected filters." />
               </motion.div>
             )}
           </AnimatePresence>
-<<<<<<< HEAD
 
-=======
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
         </div>
       </main>
 

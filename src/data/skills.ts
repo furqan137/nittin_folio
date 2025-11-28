@@ -24,5 +24,5 @@ export const skills: Skill[] = [
   { name: "Lightroom", icon: lightroomIcon, category: "Design" },
 ];
 
-// ✅ Optional default export (for simpler imports)
+
 export default skills;

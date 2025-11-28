@@ -29,7 +29,11 @@ import Playground6 from "../images/Playgrounds/Playground6.png";
 import Playground7 from "../images/Playgrounds/Playground7.png";
 import Playground8 from "../images/Playgrounds/Playground8.png";
 
-<<<<<<< HEAD
+
+
+// =========================================================
+// ✅ WORKS PROJECTS (FULL DETAILED VERSION WITH SLUGS + TABS)
+// =========================================================
 export const worksProjects: Project[] = [
   {
     id: 1,
@@ -47,15 +51,8 @@ export const worksProjects: Project[] = [
       {
         label: "Overview",
         heading: "Brand Design",
-        description:
-          "Created a modern digital identity for a premium real estate company.",
-        images: [
-          {
-            src: Project1,
-            title: "Logo Concept",
-            desc: "Elegant design showcasing urban sophistication.",
-          },
-        ],
+        description: "Created a modern digital identity for a premium real estate company.",
+        images: [{ src: Project1, title: "Logo Concept", desc: "Elegant design showcasing urban sophistication." }],
       },
     ],
   },
@@ -77,13 +74,7 @@ export const worksProjects: Project[] = [
         label: "UI Design",
         heading: "Vibrant Dark Mode",
         description: "Designed a sleek dark interface for smooth navigation.",
-        images: [
-          {
-            src: Project2,
-            title: "Main Interface",
-            desc: "Neon-accented layout for music enthusiasts.",
-          },
-        ],
+        images: [{ src: Project2, title: "Main Interface", desc: "Neon-accented layout for music enthusiasts." }],
       },
     ],
   },
@@ -104,15 +95,8 @@ export const worksProjects: Project[] = [
       {
         label: "Concept",
         heading: "Cyberpunk Vision",
-        description:
-          "A personal artwork exploring futuristic neon themes.",
-        images: [
-          {
-            src: Project3,
-            title: "Artwork",
-            desc: "Illustration in vibrant purples and blues.",
-          },
-        ],
+        description: "A personal artwork exploring futuristic neon themes.",
+        images: [{ src: Project3, title: "Artwork", desc: "Illustration in vibrant purples and blues." }],
       },
     ],
   },
@@ -133,15 +117,8 @@ export const worksProjects: Project[] = [
       {
         label: "Identity",
         heading: "Eco Brand",
-        description:
-          "Minimal and sustainable aesthetic for organic coffee.",
-        images: [
-          {
-            src: Project4,
-            title: "Logo Mockup",
-            desc: "Earth-toned branding assets.",
-          },
-        ],
+        description: "Minimal and sustainable aesthetic for organic coffee.",
+        images: [{ src: Project4, title: "Logo Mockup", desc: "Earth-toned branding assets." }],
       },
     ],
   },
@@ -162,15 +139,8 @@ export const worksProjects: Project[] = [
       {
         label: "Artwork",
         heading: "Shapes in Balance",
-        description:
-          "Explores geometric form balance and symmetry.",
-        images: [
-          {
-            src: Project5,
-            title: "Main Artwork",
-            desc: "Visual balance of color gradients.",
-          },
-        ],
+        description: "Explores geometric form balance and symmetry.",
+        images: [{ src: Project5, title: "Main Artwork", desc: "Visual balance of color gradients." }],
       },
     ],
   },
@@ -191,15 +161,8 @@ export const worksProjects: Project[] = [
       {
         label: "Inspiration",
         heading: "AI Consciousness",
-        description:
-          "Artwork expressing the soul within machines.",
-        images: [
-          {
-            src: Project6,
-            title: "Digital Portrait",
-            desc: "Surreal neon tones and emotionless gaze.",
-          },
-        ],
+        description: "Artwork expressing the soul within machines.",
+        images: [{ src: Project6, title: "Digital Portrait", desc: "Surreal neon tones and emotionless gaze." }],
       },
     ],
   },
@@ -220,15 +183,8 @@ export const worksProjects: Project[] = [
       {
         label: "Design",
         heading: "Serenity in Motion",
-        description:
-          "A soothing visual palette representing calmness.",
-        images: [
-          {
-            src: Project7,
-            title: "Nature Scene",
-            desc: "Pastel gradients and natural forms.",
-          },
-        ],
+        description: "A soothing visual palette representing calmness.",
+        images: [{ src: Project7, title: "Nature Scene", desc: "Pastel gradients and natural forms." }],
       },
     ],
   },
@@ -249,15 +205,8 @@ export const worksProjects: Project[] = [
       {
         label: "Logo",
         heading: "Retro Cafe Vibe",
-        description:
-          "Playful pixel-art inspired design system.",
-        images: [
-          {
-            src: Project8,
-            title: "Logo Preview",
-            desc: "Pixel-based typography with coffee motif.",
-          },
-        ],
+        description: "Playful pixel-art inspired design system.",
+        images: [{ src: Project8, title: "Logo Preview", desc: "Pixel-based typography with coffee motif." }],
       },
     ],
   },
@@ -278,36 +227,19 @@ export const worksProjects: Project[] = [
       {
         label: "Branding",
         heading: "Clean & Soft Look",
-        description:
-          "Subtle tones and elegant packaging visuals.",
-        images: [
-          {
-            src: Project9,
-            title: "Product Mockups",
-            desc: "Minimalist cream container and logo design.",
-          },
-        ],
+        description: "Subtle tones and elegant packaging visuals.",
+        images: [{ src: Project9, title: "Product Mockups", desc: "Minimalist cream container and logo design." }],
       },
     ],
   },
-=======
-// ------------------ WORKS ------------------
-export const worksProjects: Project[] = [
-  { id: 1, title: "17 West", category: "digital_art", image: Project1, link: "/project/1", description: "Modern real estate concept branding.", client: "17 West Group", services: "Brand Identity, Web UI/UX", duration: "3 Weeks", year: "2024", tabs: [{ label: "Overview", heading: "Brand Design", description: "Created a modern digital identity for a premium real estate company.", images: [{ src: Project1, title: "Logo Concept", desc: "Elegant design showcasing urban sophistication." }] }] },
-  { id: 2, title: "Aura Music App", category: "ui_ux", image: Project2, link: "/project/2", description: "Music app interface design focusing on user flow.", client: "Aura Audio", services: "App UI/UX Design", duration: "2 Weeks", year: "2024", tabs: [{ label: "UI Design", heading: "Vibrant Dark Mode", description: "Designed a sleek dark interface for smooth navigation.", images: [{ src: Project2, title: "Main Interface", desc: "Neon-accented layout for music enthusiasts." }] }] },
-  { id: 3, title: "Neon Dystopia", category: "digital_art", image: Project3, link: "/project/3", description: "Cyberpunk-inspired artwork with glowing effects.", client: "Self Project", services: "Digital Illustration", duration: "1 Week", year: "2024", tabs: [{ label: "Concept", heading: "Cyberpunk Vision", description: "A personal artwork exploring futuristic neon themes.", images: [{ src: Project3, title: "Artwork", desc: "Illustration in vibrant purples and blues." }] }] },
-  { id: 4, title: "Terra Coffee", category: "branding", image: Project4, link: "/project/4", description: "Branding project for an eco-friendly coffee brand.", client: "Terra Co.", services: "Logo Design, Branding", duration: "2 Weeks", year: "2024", tabs: [{ label: "Identity", heading: "Eco Brand", description: "Minimal and sustainable aesthetic for organic coffee.", images: [{ src: Project4, title: "Logo Mockup", desc: "Earth-toned branding assets." }] }] },
-  { id: 5, title: "Geometric Harmony", category: "abstract", image: Project5, link: "/project/5", description: "Abstract art balancing symmetry and color contrast.", client: "Freelance", services: "Digital Art", duration: "1 Week", year: "2023", tabs: [{ label: "Artwork", heading: "Shapes in Balance", description: "Explores geometric form balance and symmetry.", images: [{ src: Project5, title: "Main Artwork", desc: "Visual balance of color gradients." }] }] },
-  { id: 6, title: "Android Soul", category: "digital_art", image: Project6, link: "/project/6", description: "Futuristic digital artwork exploring machine emotions.", client: "Private Commission", services: "Concept Art", duration: "4 Days", year: "2023", tabs: [{ label: "Inspiration", heading: "AI Consciousness", description: "Artwork expressing the soul within machines.", images: [{ src: Project6, title: "Digital Portrait", desc: "Surreal neon tones and emotionless gaze." }] }] },
-  { id: 7, title: "Zen Garden", category: "digital_art", image: Project7, link: "/project/7", description: "Calming visuals inspired by nature and Japanese art.", client: "Wellness Brand", services: "Digital Art, Concept Visualization", duration: "1 Week", year: "2023", tabs: [{ label: "Design", heading: "Serenity in Motion", description: "A soothing visual palette representing calmness.", images: [{ src: Project7, title: "Nature Scene", desc: "Pastel gradients and natural forms." }] }] },
-  { id: 8, title: "Pixel Perk Cafe", category: "branding", image: Project8, link: "/project/8", description: "Cafe logo and branding with pixel-art theme.", client: "Pixel Perk", services: "Logo Design, Brand Identity", duration: "2 Weeks", year: "2023", tabs: [{ label: "Logo", heading: "Retro Cafe Vibe", description: "Playful pixel-art inspired design system.", images: [{ src: Project8, title: "Logo Preview", desc: "Pixel-based typography with coffee motif." }] }] },
-  { id: 9, title: "Etherea Skincare", category: "branding", image: Project9, link: "/project/9", description: "Minimalist skincare branding project.", client: "Etherea", services: "Packaging Design, Brand Aesthetic", duration: "3 Weeks", year: "2024", tabs: [{ label: "Branding", heading: "Clean & Soft Look", description: "Subtle tones and elegant packaging visuals.", images: [{ src: Project9, title: "Product Mockups", desc: "Minimalist cream container and logo design." }] }] },
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 ];
 
-// ------------------ PAST WORKS ------------------
+
+
+// =========================================================
+// ✅ PAST WORKS PROJECTS (FULL SLUG VERSION)
+// =========================================================
 export const pastWorksProjects: Project[] = [
-<<<<<<< HEAD
   {
     id: 101,
     slug: "whispering-woods",
@@ -325,13 +257,7 @@ export const pastWorksProjects: Project[] = [
         label: "Overview",
         heading: "Mystic Forest Scene",
         description: "Soft lighting and fantasy tones inspired this illustration.",
-        images: [
-          {
-            src: Past1,
-            title: "Concept Artwork",
-            desc: "Calm forest ambience with magical highlights.",
-          },
-        ],
+        images: [{ src: Past1, title: "Concept Artwork", desc: "Calm forest ambience with magical highlights." }],
       },
     ],
   },
@@ -353,13 +279,7 @@ export const pastWorksProjects: Project[] = [
         label: "Artwork",
         heading: "Neon Chaos",
         description: "A darker version of the Neon Dystopia universe.",
-        images: [
-          {
-            src: Past2,
-            title: "Main Poster",
-            desc: "Neon cyber themes.",
-          },
-        ],
+        images: [{ src: Past2, title: "Main Poster", desc: "Neon cyber themes." }],
       },
     ],
   },
@@ -381,13 +301,7 @@ export const pastWorksProjects: Project[] = [
         label: "Design",
         heading: "Abstract Symmetry",
         description: "A colorful geometric exploration.",
-        images: [
-          {
-            src: Past3,
-            title: "Artwork",
-            desc: "Shapes & symmetry.",
-          },
-        ],
+        images: [{ src: Past3, title: "Artwork", desc: "Shapes & symmetry." }],
       },
     ],
   },
@@ -409,13 +323,7 @@ export const pastWorksProjects: Project[] = [
         label: "Concept",
         heading: "Emotion in Machines",
         description: "Exploring the soul of AI.",
-        images: [
-          {
-            src: Past4,
-            title: "Concept Portrait",
-            desc: "Futuristic tones.",
-          },
-        ],
+        images: [{ src: Past4, title: "Concept Portrait", desc: "Futuristic tones." }],
       },
     ],
   },
@@ -437,13 +345,7 @@ export const pastWorksProjects: Project[] = [
         label: "Overview",
         heading: "Soft Nature",
         description: "Peaceful visuals inspired by Japanese gardens.",
-        images: [
-          {
-            src: Past5,
-            title: "Art Shot",
-            desc: "Warm & calm tones.",
-          },
-        ],
+        images: [{ src: Past5, title: "Art Shot", desc: "Warm & calm tones." }],
       },
     ],
   },
@@ -465,13 +367,7 @@ export const pastWorksProjects: Project[] = [
         label: "Design",
         heading: "Retro Pixel Branding",
         description: "Fun visual identity using pixel-style art.",
-        images: [
-          {
-            src: Past6,
-            title: "Pixel Mockup",
-            desc: "Coffee meets pixels.",
-          },
-        ],
+        images: [{ src: Past6, title: "Pixel Mockup", desc: "Coffee meets pixels." }],
       },
     ],
   },
@@ -479,7 +375,9 @@ export const pastWorksProjects: Project[] = [
 
 
 
-// ------------------ PLAYGROUND ------------------
+// =========================================================
+// ✅ PLAYGROUND PROJECTS (SLUG + FILTER + TABS)
+// =========================================================
 export const playgroundProjects: Project[] = [
   {
     id: 201,
@@ -487,7 +385,7 @@ export const playgroundProjects: Project[] = [
     title: "ERROR_404.exe",
     subtitle: "When reality.exe stops working",
     category: "experimental",
-    filter: "glitch",                // ⭐ added
+    filter: "glitch",
     image: Playground1,
     link: "/playground/error-404-exe",
     description: "A glitch-themed experimental design project.",
@@ -500,13 +398,7 @@ export const playgroundProjects: Project[] = [
         label: "Overview",
         heading: "System Failure Aesthetic",
         description: "Exploring glitch, distortion and broken pixel systems.",
-        images: [
-          {
-            src: Playground1,
-            title: "Glitch Preview",
-            desc: "Digital distortion imagery.",
-          },
-        ],
+        images: [{ src: Playground1, title: "Glitch Preview", desc: "Digital distortion imagery." }],
       },
     ],
   },
@@ -517,7 +409,7 @@ export const playgroundProjects: Project[] = [
     title: "NEON DREAMS",
     subtitle: "Typography Chaos",
     category: "unconventional",
-    filter: "type",                  // ⭐ added
+    filter: "type",
     image: Playground2,
     link: "/playground/neon-dreams",
     description: "A neon chaos concept exploring experimental typography.",
@@ -530,13 +422,7 @@ export const playgroundProjects: Project[] = [
         label: "Artwork",
         heading: "Neon Typography",
         description: "Distorted neon letters creating visual rhythm.",
-        images: [
-          {
-            src: Playground2,
-            title: "Typography Art",
-            desc: "Bold neon contrasts.",
-          },
-        ],
+        images: [{ src: Playground2, title: "Typography Art", desc: "Bold neon contrasts." }],
       },
     ],
   },
@@ -547,7 +433,7 @@ export const playgroundProjects: Project[] = [
     title: "Impossible Geometries",
     subtitle: "Physics left the chat",
     category: "weird",
-    filter: "3d",                    // ⭐ added
+    filter: "3d",
     image: Playground3,
     link: "/playground/impossible-geometries",
     description: "Mind-bending geometric illusions.",
@@ -560,13 +446,7 @@ export const playgroundProjects: Project[] = [
         label: "Design",
         heading: "Impossible Shapes",
         description: "Geometry that breaks logic and perception.",
-        images: [
-          {
-            src: Playground3,
-            title: "Impossible Shape",
-            desc: "Optical illusion artwork.",
-          },
-        ],
+        images: [{ src: Playground3, title: "Impossible Shape", desc: "Optical illusion artwork." }],
       },
     ],
   },
@@ -577,7 +457,7 @@ export const playgroundProjects: Project[] = [
     title: "Broken.Reality",
     subtitle: "System.malfunction.beautiful",
     category: "experimental",
-    filter: "chaos",                 // ⭐ added
+    filter: "chaos",
     image: Playground4,
     link: "/playground/broken-reality",
     description: "A surreal breakdown of reality.",
@@ -590,13 +470,7 @@ export const playgroundProjects: Project[] = [
         label: "Concept",
         heading: "Reality Collapse",
         description: "Exploring surreal distortions and destroyed forms.",
-        images: [
-          {
-            src: Playground4,
-            title: "Surreal Scene",
-            desc: "Fragmented reality visualization.",
-          },
-        ],
+        images: [{ src: Playground4, title: "Surreal Scene", desc: "Fragmented reality visualization." }],
       },
     ],
   },
@@ -607,7 +481,7 @@ export const playgroundProjects: Project[] = [
     title: "Data Dreams",
     subtitle: "What AI sees when it sleeps",
     category: "unconventional",
-    filter: "chaos",                 // ⭐ added
+    filter: "chaos",
     image: Playground5,
     link: "/playground/data-dreams",
     description: "Abstract neural concept art.",
@@ -619,14 +493,8 @@ export const playgroundProjects: Project[] = [
       {
         label: "Dream View",
         heading: "Inside Machine Dreams",
-        description: "A visual interpretation of neural thought patterns.",
-        images: [
-          {
-            src: Playground5,
-            title: "AI Dream",
-            desc: "Neural pathways & artificial imagination.",
-          },
-        ],
+        description: "Visual interpretation of neural thought patterns.",
+        images: [{ src: Playground5, title: "AI Dream", desc: "Neural pathways & artificial imagination." }],
       },
     ],
   },
@@ -637,7 +505,7 @@ export const playgroundProjects: Project[] = [
     title: "WILD & FREE",
     subtitle: "Rebellious Letters",
     category: "weird",
-    filter: "type",                  // ⭐ added
+    filter: "type",
     image: Playground6,
     link: "/playground/wild-and-free",
     description: "A rebellious typography experiment.",
@@ -650,13 +518,7 @@ export const playgroundProjects: Project[] = [
         label: "Typography",
         heading: "Uncontrolled Lettering",
         description: "Chaotic but expressive letter movements.",
-        images: [
-          {
-            src: Playground6,
-            title: "Type Motion",
-            desc: "Letters breaking design rules.",
-          },
-        ],
+        images: [{ src: Playground6, title: "Type Motion", desc: "Letters breaking design rules." }],
       },
     ],
   },
@@ -667,7 +529,7 @@ export const playgroundProjects: Project[] = [
     title: "Dreamscape Architecture",
     subtitle: "Building in the impossible",
     category: "experimental",
-    filter: "3d",                    // ⭐ added
+    filter: "3d",
     image: Playground7,
     link: "/playground/dreamscape-architecture",
     description: "Architectural concepts that defy physics.",
@@ -680,13 +542,7 @@ export const playgroundProjects: Project[] = [
         label: "3D Art",
         heading: "Impossible Structures",
         description: "Visualizing dream-driven structures.",
-        images: [
-          {
-            src: Playground7,
-            title: "Architecture Concept",
-            desc: "Dreamlike impossible buildings.",
-          },
-        ],
+        images: [{ src: Playground7, title: "Architecture Concept", desc: "Dreamlike impossible buildings." }],
       },
     ],
   },
@@ -697,7 +553,7 @@ export const playgroundProjects: Project[] = [
     title: "Liquid Thoughts",
     subtitle: "Consciousness in motion",
     category: "unconventional",
-    filter: "glitch",                // ⭐ added
+    filter: "glitch",
     image: Playground8,
     link: "/playground/liquid-thoughts",
     description: "Fluid expressions of consciousness.",
@@ -710,34 +566,8 @@ export const playgroundProjects: Project[] = [
         label: "Fluid Design",
         heading: "Flow of Mind",
         description: "Liquid forms representing deep thought.",
-        images: [
-          {
-            src: Playground8,
-            title: "Liquid Concept",
-            desc: "Smooth flowing shapes & reflections.",
-          },
-        ],
+        images: [{ src: Playground8, title: "Liquid Concept", desc: "Smooth flowing shapes & reflections." }],
       },
     ],
   },
-=======
-  { id: 1, title: "Whispering Woods", description: "View Project", category: "digital_art", image: Past1, link: "/crystalvision" },
-  { id: 2, title: "Neon Dystopia", description: "View Project", category: "digital_art", image: Past2, link: "/crystalvision" },
-  { id: 3, title: "Geometric Harmony", description: "View Project", category: "digital_art", image: Past3, link: "/crystalvision" },
-  { id: 4, title: "Android Soul", description: "View Project", category: "digital_art", image: Past4, link: "/crystalvision" },
-  { id: 5, title: "Zen Garden", description: "View Project", category: "digital_art", image: Past5, link: "/crystalvision" },
-  { id: 6, title: "Pixel Perk Cafe", description: "View Project", category: "digital_art", image: Past6, link: "/crystalvision" },
-];
-
-// ------------------ PLAYGROUND ------------------
-export const playgroundProjects: Project[] = [
-  { id: 1, title: "ERROR_404.exe", subtitle: "When reality.exe stops working", category: "experimental", image: Playground1, link: "/crystalvision" },
-  { id: 2, title: "NEON DREAMS", subtitle: "Typography Chaos", category: "unconventional", image: Playground2, link: "/crystalvision" },
-  { id: 3, title: "Impossible Geometries", subtitle: "Physics left the chat", category: "weird", image: Playground3, link: "/crystalvision" },
-  { id: 4, title: "Broken.Reality", subtitle: "System.malfunction.beautiful", category: "experimental", image: Playground4, link: "/crystalvision" },
-  { id: 5, title: "Data Dreams", subtitle: "What AI sees when it sleeps", category: "unconventional", image: Playground5, link: "/crystalvision" },
-  { id: 6, title: "WILD & FREE", subtitle: "Rebellious Letters", category: "weird", image: Playground6, link: "/crystalvision" },
-  { id: 7, title: "Dreamscape Architecture", subtitle: "Building in the impossible", category: "experimental", image: Playground7, link: "/crystalvision" },
-  { id: 8, title: "Liquid Thoughts", subtitle: "Consciousness in motion", category: "unconventional", image: Playground8, link: "/crystalvision" },
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 ];

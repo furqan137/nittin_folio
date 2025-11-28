@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight, Download } from "lucide-react";
-<<<<<<< HEAD
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -17,108 +16,53 @@ import {
 
 import { Project } from "../types";
 
-
 // ================= Animations =================
-=======
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import BackToTop from "../components/BackToTop";
-import { worksProjects, pastWorksProjects, playgroundProjects } from "../data/projects";
-import EmptyState from "../components/EmptyState";
-
-// === Animations ===
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: (custom?: number) => ({
+  visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-<<<<<<< HEAD
-    transition: {
-      delay: (custom ?? 0) * 0.15,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-=======
-    transition: { delay: (custom ?? 0) * 0.15, duration: 0.6, ease: "easeOut" },
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
   }),
 };
 
 const fadeIn: Variants = {
   hidden: { opacity: 0 },
-  visible: (custom?: number) => ({
+  visible: (i: number = 0) => ({
     opacity: 1,
-<<<<<<< HEAD
-    transition: {
-      delay: (custom ?? 0) * 0.1,
-      duration: 0.5,
-      ease: "easeInOut",
-    },
+    transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
   }),
 };
 
-
 // ================= MAIN COMPONENT =================
-
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
-  // Merge all datasets
-  const dataset: Project[] = [
-    ...worksProjects,
-    ...pastWorksProjects,
-    ...playgroundProjects,
+  // Add type field for routing
+  const dataset: (Project & { __type: string })[] = [
+    ...worksProjects.map((p) => ({ ...p, __type: "works" })),
+    ...pastWorksProjects.map((p) => ({ ...p, __type: "pastworks" })),
+    ...playgroundProjects.map((p) => ({ ...p, __type: "playground" })),
   ];
 
-  // Find project by slug
-  const projectIndex = dataset.findIndex((p) => p.slug === slug);
-  const project = projectIndex !== -1 ? dataset[projectIndex] : null;
+  const index = dataset.findIndex((p) => p.slug === slug);
+  const project = index !== -1 ? dataset[index] : null;
 
-  const prevProject = projectIndex > 0 ? dataset[projectIndex - 1] : null;
-  const nextProject =
-    projectIndex < dataset.length - 1 ? dataset[projectIndex + 1] : null;
+  const prevProject = index > 0 ? dataset[index - 1] : null;
+  const nextProject = index < dataset.length - 1 ? dataset[index + 1] : null;
 
-  const [activeTab, setActiveTab] = useState<string>(
-    project?.tabs?.[0]?.label ?? ""
-  );
-
+  const [activeTab, setActiveTab] = useState<string>("");
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
-
-  // Reset on project change
+  // Scroll ONLY on slug change (⛔ never on hover)
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    if (project?.tabs?.[0]) {
+    window.scrollTo({ top: 0 });
+    if (project?.tabs?.length) {
       setActiveTab(project.tabs[0].label);
     }
-  }, [slug, project]);
-
+  }, [slug]);
 
   // If project not found
-=======
-    transition: { delay: (custom ?? 0) * 0.1, duration: 0.5, ease: "easeInOut" },
-  }),
-};
-
-const ProjectDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const dataset = [...worksProjects, ...pastWorksProjects, ...playgroundProjects];
-  const projectIndex = dataset.findIndex((p) => String(p.id) === String(id));
-  const project = projectIndex !== -1 ? dataset[projectIndex] : null;
-
-  const prevProject = projectIndex > 0 ? dataset[projectIndex - 1] : null;
-  const nextProject = projectIndex < dataset.length - 1 ? dataset[projectIndex + 1] : null;
-
-  const [activeTab, setActiveTab] = useState<string>(project?.tabs?.[0]?.label || "");
-  const [hoveredImage, setHoveredImage] = useState<number | null>(null);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    if (project?.tabs?.[0]) setActiveTab(project.tabs[0].label);
-  }, [id, project]);
-
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
   if (!project) {
     return (
       <div className="bg-[#0b0c10] text-white min-h-screen flex flex-col justify-center items-center pt-36 px-6 text-center">
@@ -126,11 +70,7 @@ const ProjectDetail: React.FC = () => {
           title="Project Not Found"
           description={
             <span>
-<<<<<<< HEAD
-              It seems this project does not exist. <br />
-=======
-              It seems this project doesn’t exist or has been removed. <br />
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+              This project does not exist. <br />
               <Link
                 to="/works"
                 className="font-bold hover:underline hover:text-blue-400 transition-colors"
@@ -144,35 +84,17 @@ const ProjectDetail: React.FC = () => {
     );
   }
 
-<<<<<<< HEAD
-
   // Download handler
   const handleDownload = (src: string, fileName?: string) => {
     try {
-      const name = fileName ?? src.split("/").pop() ?? "download";
       const a = document.createElement("a");
       a.href = src;
-      a.download = name;
+      a.download = fileName ?? src.split("/").pop() ?? "download";
       document.body.appendChild(a);
       a.click();
       a.remove();
     } catch (e) {
       console.error("Download failed:", e);
-=======
-  // Safe download handler
-  const handleDownload = (src: string, fileName?: string) => {
-    try {
-      const url = src;
-      const name = fileName ?? url.split("/").pop() ?? "download";
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = name;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (e) {
-      console.error("Download failed", e);
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
     }
   };
 
@@ -184,33 +106,18 @@ const ProjectDetail: React.FC = () => {
   ].filter((i) => i.value);
 
   const currentTab =
-<<<<<<< HEAD
     project.tabs?.find((t) => t.label === activeTab) ??
     project.tabs?.[0] ??
     null;
 
-
-  // ================= RENDER =================
-
-=======
-    project?.tabs?.find((t) => t.label === activeTab) ||
-    project?.tabs?.[0] ||
-    null;
-
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
   return (
     <div className="bg-[#0b0c10] text-white min-h-screen">
       <Navbar />
 
       <div className="max-w-6xl mx-auto px-7 pt-36 sm:pt-48 md:pt-56">
-<<<<<<< HEAD
 
         {/* HEADER */}
         <header className="flex flex-col md:flex-row justify-between items-start mb-16">
-=======
-        {/* HEADER */}
-        <header className="flex flex-col md:flex-row md:justify-between md:items-start mb-16">
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -220,10 +127,6 @@ const ProjectDetail: React.FC = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
               {project.title}
             </h1>
-<<<<<<< HEAD
-
-=======
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
             {project.description && (
               <p className="text-gray-400 text-base sm:text-lg">
                 {project.description}
@@ -236,34 +139,20 @@ const ProjectDetail: React.FC = () => {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-<<<<<<< HEAD
               className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 md:mt-0 md:ml-12"
             >
-              {infoFields.map((info, idx) => (
-=======
-              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-8 md:mt-0 md:ml-12 w-full max-w-2xl"
-            >
-              {infoFields.map((item, idx) => (
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+              {infoFields.map((item, i) => (
                 <motion.div
-                  key={idx}
+                  key={i}
                   variants={fadeIn}
                   initial="hidden"
                   animate="visible"
-                  custom={idx}
-<<<<<<< HEAD
-                  className="bg-[#1a1c23] px-4 py-3 rounded-lg text-sm"
-                >
-                  <p className="text-gray-400 text-xs mb-1">{info.label}</p>
-                  <p className="font-semibold text-white truncate">
-                    {info.value}
-=======
+                  custom={i}
                   className="bg-[#1a1c23] px-4 py-3 rounded-lg text-sm hover:scale-105 transition-transform"
                 >
                   <p className="text-gray-400 text-xs mb-1">{item.label}</p>
                   <p className="font-semibold text-white truncate">
                     {item.value}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                   </p>
                 </motion.div>
               ))}
@@ -271,53 +160,32 @@ const ProjectDetail: React.FC = () => {
           )}
         </header>
 
-<<<<<<< HEAD
-
         {/* TABS */}
         {project.tabs?.length > 0 && (
-=======
-        {/* TABS */}
-        {project?.tabs && project.tabs.length > 0 && (
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             className="flex justify-center mb-10"
           >
-<<<<<<< HEAD
             <div className="bg-[#14151b] p-2 rounded-full border border-gray-700/50 flex gap-2 max-w-2xl overflow-x-auto">
-=======
-            <div className="bg-[#14151b] p-2 rounded-full border border-gray-700/50 flex gap-2 max-w-2xl w-full justify-center overflow-x-auto">
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
               {project.tabs.map((tab) => (
                 <motion.button
                   key={tab.label}
                   onClick={() => setActiveTab(tab.label)}
-<<<<<<< HEAD
-                  className={`px-4 py-2 rounded-full text-sm relative ${
-=======
                   whileTap={{ scale: 0.95 }}
                   className={`px-4 py-2 rounded-full font-medium text-sm transition-all relative ${
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                     activeTab === tab.label
                       ? "text-white"
                       : "text-gray-400 hover:text-blue-400"
                   }`}
                 >
                   {tab.label}
-<<<<<<< HEAD
-
-=======
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                   {activeTab === tab.label && (
                     <motion.div
                       layoutId="highlight"
                       className="absolute inset-0 bg-blue-600 rounded-full -z-10"
-<<<<<<< HEAD
-=======
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
                     />
                   )}
                 </motion.button>
@@ -326,201 +194,117 @@ const ProjectDetail: React.FC = () => {
           </motion.div>
         )}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
         {/* TAB CONTENT */}
         <motion.div
           key={activeTab}
-          layout
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-<<<<<<< HEAD
           transition={{ duration: 0.4 }}
-=======
-          transition={{ duration: 0.4, ease: "easeInOut" }}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
         >
           {currentTab ? (
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="mb-16"
-            >
+            <motion.div variants={fadeUp} initial="hidden" animate="visible" className="mb-16">
               {(currentTab.heading || currentTab.description) && (
                 <div className="text-center mb-10">
                   {currentTab.heading && (
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">
-                      {currentTab.heading}
-                    </h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">{currentTab.heading}</h2>
                   )}
-<<<<<<< HEAD
-
                   {currentTab.description && (
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-=======
-                  {currentTab.description && (
-                    <p className="text-gray-400 max-w-2xl mx-auto text-base">
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
-                      {currentTab.description}
-                    </p>
+                    <p className="text-gray-400 max-w-2xl mx-auto">{currentTab.description}</p>
                   )}
                 </div>
               )}
 
+              {/* IMAGES */}
               {currentTab.images?.length ? (
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                  {currentTab.images.map((img, idx) => (
-                    <motion.div
-                      key={idx}
+                  {currentTab.images.map((img, i) => (
+                    <div
+                      key={i}
                       className="relative group rounded-xl overflow-hidden bg-[#111]"
-                      onMouseEnter={() => setHoveredImage(idx)}
+                      onMouseEnter={() => setHoveredImage(i)}
                       onMouseLeave={() => setHoveredImage(null)}
                     >
                       <img
                         src={img.src}
-<<<<<<< HEAD
                         alt={img.title ?? "Project image"}
                         className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
 
-=======
-                        alt={img.title || "Project image"}
-                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
-                      {hoveredImage === idx && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-<<<<<<< HEAD
-                          className="absolute inset-0 bg-black/60 p-4 flex flex-col justify-end"
-                        >
-                          {img.title && (
-                            <h3 className="text-lg font-semibold mb-1">
-                              {img.title}
-                            </h3>
-                          )}
+                      {/* FIXED: Overlay no longer triggers scroll */}
+                      <div
+                        className={`absolute inset-0 bg-black/60 p-4 flex flex-col justify-end transition-opacity duration-300 ${
+                          hoveredImage === i ? "opacity-100" : "opacity-0 pointer-events-none"
+                        }`}
+                      >
+                        {img.title && (
+                          <h3 className="text-lg font-semibold mb-1">{img.title}</h3>
+                        )}
+                        {img.desc && (
+                          <p className="text-gray-300 text-sm mb-2">{img.desc}</p>
+                        )}
 
-=======
-                          className="absolute inset-0 bg-black/60 flex flex-col justify-end p-4"
-                        >
-                          {img.title && (
-                            <h3 className="text-lg font-semibold text-white mb-1">
-                              {img.title}
-                            </h3>
-                          )}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
-                          {img.desc && (
-                            <p className="text-gray-300 text-sm mb-2">
-                              {img.desc}
-                            </p>
-                          )}
-<<<<<<< HEAD
-
-                          {img.download && (
-                            <button
-                              onClick={() =>
-                                handleDownload(img.src, img.download)
-                              }
-                              className="bg-blue-600 px-3 py-1.5 rounded-md text-xs flex items-center gap-1"
-=======
-                          {img.download && (
-                            <button
-                              onClick={() => handleDownload(img.src, img.download)}
-                              className="bg-blue-600 px-3 py-1.5 rounded-md text-xs flex items-center gap-1 hover:opacity-90"
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
-                            >
-                              <Download className="w-4 h-4" />
-                              Download
-                            </button>
-                          )}
-                        </motion.div>
-                      )}
-                    </motion.div>
+                        {img.download && (
+                          <button
+                            onClick={() => handleDownload(img.src, img.download)}
+                            className="bg-blue-600 px-3 py-1.5 rounded-md text-xs flex items-center gap-1 hover:opacity-90"
+                          >
+                            <Download className="w-4 h-4" /> Download
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-500 text-center mt-10">
-                  No content for this tab yet.
-                </p>
+                <p className="text-gray-500 text-center mt-10">No content for this tab yet.</p>
               )}
             </motion.div>
           ) : (
-            <p className="text-gray-500 text-center mt-10">
-              No content available.
-            </p>
+            <p className="text-gray-500 text-center mt-10">No content available.</p>
           )}
         </motion.div>
 
-<<<<<<< HEAD
-
         {/* NEXT / PREVIOUS */}
         <BackToTop />
-
         <div className="flex justify-between items-center border-t border-gray-800 py-6 relative">
 
+          {/* Prev */}
           {prevProject ? (
             <Link
-              to={`/${prevProject.type}/${prevProject.slug}`}
-=======
-        {/* NAVIGATION */}
-        <BackToTop />
-        <div className="relative flex justify-between items-center border-t border-gray-800 pt-6 pb-6">
-          {prevProject ? (
-            <Link
-              to={`/project/${prevProject.id}`}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+              to={`/${prevProject.__type}/${prevProject.slug}`}
               className="flex items-center gap-2 text-gray-400 hover:text-blue-400"
             >
               <ArrowLeft className="w-4 h-4" /> Previous
             </Link>
           ) : (
-<<<<<<< HEAD
             <span className="text-gray-600 opacity-60 flex items-center gap-2">
-=======
-            <span className="text-gray-600 flex items-center gap-2 opacity-60">
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
               <ArrowLeft className="w-4 h-4" /> Previous
             </span>
           )}
 
+          {/* Center info */}
           <div className="absolute left-1/2 -translate-x-1/2 text-center">
             <p className="text-gray-500 text-xs mb-1">
-              Project {projectIndex + 1} of {dataset.length}
+              Project {index + 1} of {dataset.length}
             </p>
             <Link
               to="/works"
               className="text-gray-400 hover:text-blue-400 text-xs flex items-center justify-center gap-1"
             >
-<<<<<<< HEAD
               <ArrowLeft className="w-3 h-3" /> Back to Works
-=======
-              <ArrowLeft className="w-3 h-3" />
-              Back to Works
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
             </Link>
           </div>
 
+          {/* Next */}
           {nextProject ? (
             <Link
-<<<<<<< HEAD
-              to={`/${nextProject.type}/${nextProject.slug}`}
-=======
-              to={`/project/${nextProject.id}`}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+              to={`/${nextProject.__type}/${nextProject.slug}`}
               className="flex items-center gap-2 text-gray-400 hover:text-blue-400"
             >
               Next <ArrowRight className="w-4 h-4" />
             </Link>
           ) : (
-<<<<<<< HEAD
             <span className="text-gray-600 opacity-60 flex items-center gap-2">
-=======
-            <span className="text-gray-600 flex items-center gap-2 opacity-60">
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
               Next <ArrowRight className="w-4 h-4" />
             </span>
           )}
