@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-<<<<<<< HEAD
 
 import { worksProjects } from "../data/projects";
 
@@ -11,15 +10,6 @@ import BackToTop from "../components/BackToTop";
 import Grid from "../components/Grid";
 
 // Icons
-=======
-import { worksProjects } from "../data/projects";
-
-import Footer from "../components/Footer";
-import BackToTop from "../components/BackToTop";
-import PortfolioGrid from "../components/PortfolioGrid";
-
-// === Icons ===
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
 import AllIcon from "../icons/svg/all.svg";
 import DigitalArtIcon from "../icons/svg/art.svg";
 import BrandingIcon from "../icons/svg/brand.svg";
@@ -42,7 +32,7 @@ const Works: React.FC = () => {
       ? worksProjects
       : worksProjects.filter((p) => p.category === activeFilter);
 
-  // ---- Page animation ----
+  // Page animation
   const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const EASE_SMOOTH: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
@@ -54,7 +44,7 @@ const Works: React.FC = () => {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col bg-background"
+      className="min-h-screen flex flex-col bg-background text-white"
       variants={fadePage}
       initial="hidden"
       animate="visible"
@@ -70,16 +60,18 @@ const Works: React.FC = () => {
 
       <main className="flex-1 py-10 sm:py-12">
         <div className="max-w-6xl mx-auto px-7 sm:px-7 md:px-8">
-          {/* Header */}
-          <div className="pt-32 sm:pt-40 md:pt-44 text-center mb-10 sm:mb-14">
-            <p className="text-text-muted text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4">
+
+          {/* HEADER */}
+          <div className="pt-32 sm:pt-40 md:pt-44 text-center mb-12">
+            <p className="text-text-muted text-xs sm:text-sm uppercase tracking-wider mb-3">
               Portfolio
             </p>
-            <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl font-bold mb-5 sm:mb-7">
+
+            <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl font-bold mb-5">
               Creative Works
             </h1>
 
-            {/* Code block */}
+            {/* Fancy Code Line */}
             <div className="relative bg-transparent p-6 sm:p-8 md:p-10 mb-10 font-mono text-center max-w-3xl mx-auto text-base leading-relaxed overflow-x-auto shadow-[0_30px_25px_-25px_rgba(147,51,234,0.55)]">
               <span className="text-purple-400">const</span>{" "}
               <span className="text-pink-400">portfolio</span> = {"{"}{" "}
@@ -91,10 +83,11 @@ const Works: React.FC = () => {
               <span className="text-green-400">"always creating"</span> {"};"}
             </div>
 
-            {/* Filters */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            {/* FILTER BAR */}
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
               {filters.map((filter) => {
                 const active = activeFilter === filter.id;
+
                 return (
                   <motion.button
                     key={filter.id}
@@ -127,11 +120,7 @@ const Works: React.FC = () => {
             </div>
           </div>
 
-<<<<<<< HEAD
-          {/* Grid */}
-=======
-          {/* Projects Grid (Animated Filter Transition) */}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
+          {/* PROJECT GRID */}
           <motion.div
             key={activeFilter}
             initial={{ opacity: 0, y: 20 }}
@@ -139,30 +128,14 @@ const Works: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: EASE_SMOOTH }}
           >
-<<<<<<< HEAD
             <Grid
               type="works"
               accent="#22d3ee"
-              limit={9}
+              limit={filteredProjects.length}
               projects={filteredProjects}
             />
-=======
-            {filteredProjects.length === 0 ? (
-              <div className="py-20 flex flex-col items-center text-center">
-                <p className="text-text-muted text-sm sm:text-base">
-                  No works found.
-                </p>
-              </div>
-            ) : (
-              <PortfolioGrid
-                type="works"
-                accent="#22d3ee"
-                limit={9}
-                projects={filteredProjects} // ✅ pass filtered projects
-              />
-            )}
->>>>>>> fe0077a4e069fc6e8c4b18ea8ae6f30cb38d7da6
           </motion.div>
+
         </div>
       </main>
 
